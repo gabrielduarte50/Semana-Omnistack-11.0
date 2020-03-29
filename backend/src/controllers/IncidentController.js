@@ -10,7 +10,7 @@ module.exports = {
     console.log(count);
     //limit e ofset é apra isso, manter semrpe 5
     const incidents = await connection("incidents")
-      .join("ongs", "ongs.id", "*", "incidents.ong_id")
+      .join("ongs", "ongs.id", "=", "incidents.ong_id")
       .limit(5)
       .offset((page - 1) * 5)
       .select([

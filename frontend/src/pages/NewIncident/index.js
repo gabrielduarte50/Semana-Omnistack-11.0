@@ -17,18 +17,18 @@ export default function NewIncident() {
     const data = {
       title,
       description,
-      value
+      value,
     };
 
     try {
       await api.post("incidents", data, {
         headers: {
-          Authorization: ongId
-        }
+          Authorization: ongId,
+        },
       });
       history.push("/profile");
     } catch (err) {
-      alert("erro no cadastro de caso");
+      alert("Erro no cadastro de caso");
     }
   }
   return (
@@ -46,26 +46,26 @@ export default function NewIncident() {
           </div>
         </section>
 
-        <form action="" className="">
+        <form onSubmit={handleNewIncident}>
           <input
             placeholder="Titulo do caso"
             value={title}
-            onChange={e => setTitle(e.target.value)}
+            onChange={(e) => setTitle(e.target.value)}
           />
 
           <textarea
             placeholder="Descriçao"
             value={description}
-            onChange={e => setTitle(e.target.description)}
+            onChange={(e) => setDescription(e.target.value)}
           />
 
           <input
             placeholder="Valor"
             value={value}
-            onChange={e => setValue(e.target.value)}
+            onChange={(e) => setValue(e.target.value)}
           />
 
-          <button onClick={handleNewIncident} className="button" type="submit">
+          <button className="button" type="submit">
             Cadastrar
           </button>
         </form>

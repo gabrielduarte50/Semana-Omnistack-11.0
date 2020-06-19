@@ -10,4 +10,4 @@ Desenvolvimento de uma aplicação que conecta ONGs de cuidados de animais com p
 <li>-->Expo</li>
 </ol>
 O desenvolvimento se deu por etapas: desenvolvimento do Backend primeiro, Front Web posterior e por fim o Mobile.
-
+<img src="http://www.w3.org/2000/">

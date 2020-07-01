@@ -1,5 +1,5 @@
 //crypto é inato ao node e serve para criptografar e gerar testos aleatorios, logo uma ID
-const crypto = require("crypto");
+const generateUniqueId = require("../utils/generateUniqueId");
 const connection = require("../database/connection");
 
 module.exports = {
@@ -12,19 +12,18 @@ module.exports = {
   async create(req, res) {
     const { name, email, whatsapp, city, uf } = req.body;
     //criar ID para gerar valores unicos na abela do banco
-    const id = crypto.randomBytes(4).toString("HEX");
-    //conexão com o banco
-
+    const id = generateUniqueId();
     await connection("ongs").insert({
+      //conexão com o banco
       // inserir os dados
       id,
       name,
       email,
       whatsapp,
       city,
-      uf
+      uf,
     });
 
     return res.json({ id }); //retornamos o id pq ele será o login
-  }
+  },
 };
